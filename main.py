@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # Page title
 st.title('Product Registration')
@@ -49,3 +50,6 @@ if option == 'Add product':
 elif option == 'List products':
     
     list_products()
+    
+os.system('pause')
+os.system('cls')
