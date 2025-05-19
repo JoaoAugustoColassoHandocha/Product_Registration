@@ -1,39 +1,51 @@
 import streamlit as st
 
-# Título da página
-st.title("Cadastro de Produtos")
+# Page title
+st.title('Product Registration')
 
-# Barra lateral para seleção de ações
-opcao = st.sidebar.selectbox("Selecione uma opção", ("Adicionar Produto", "Listar Produtos"))
+# Sidebar for selecting actions
+option = st.sidebar.selectbox('Select an option', ('Add Product', 'List Products'))
 
-# Dicionário simulado de uma base de dados de produtos
-produtos = [
+# Simulated dictionary of a products database
+products = [
 
-  {"ID": 1, "Nome": "Abacaxi", "Preço": 5.99},
-  {"ID": 2, "Nome": "Abacate", "Preço": 4.99},
-  {"ID": 3, "Nome": "Banana", "Preço": 1.99}
+    {'ID': 1, 'Name': 'Pineapple', 'Price': 5.99},
+    {'ID': 2, 'Name': 'Avocado', 'Price': 4.99},
+    {'ID': 3, 'Name': 'Banana', 'Price': 1.99}
   
 ]
 
-# Função para listar produtos
-def listar_produtos():
-  st.subheader("Lista de Produtos")
-  for produto in produtos:
-    st.write(f"ID: {produto['ID']}, Nome: {produto['Nome']}, Preço: {produto['Preço']}")
+# Function to list products
+def list_products():
+    
+    st.subheader('Product List')
+  
+    for product in products:
+      
+        st.write(f'ID: {product['ID']}, Name: {product['Name']}, Price: {product['Price']}')
 
-# Função para adicionar produto
-def adicionar_produto():
-  st.subheader("Adicionar Produto")
-  nome = st.text_input("Nome do Produto")
-  preco = st.number_input("Preço do Produto")
-  if st.button("Adicionar"):
-    novo_produto = {"ID": len(produtos) + 1, "Nome": nome, "Preço": preco}
-    produtos.append(novo_produto)
-    st.sucess("Produto adicionado com sucesso!")
+# Function for Add product
+def add_product():
+    
+    st.subheader('Add product')
+    
+    name = st.text_input('Product name')
+    
+    price = st.number_input('Product price')
+    
+    if st.button('To add'):
+        
+        new_product = {'ID': len(products) + 1, 'Name': name, 'Price': price}
+        
+        products.append(new_product)
+        
+        st.sucess('Product added successfully!')
 
-# Lógica para as opções selecionadas na barra lateral
-if opcao == "Adicionar Produto":
-  adicionar_produto()
+# Logic for selected options in the sidebar
+if option == 'Add product':
+    
+    add_product()
 
-elif opcao == "Listar Produtos":
-  listar_produtos()
+elif option == 'List products':
+    
+    list_products()
