@@ -50,6 +50,3 @@ if option == 'Add product':
 elif option == 'List products':
     
     list_products()
-    
-os.system('pause')
-os.system('cls')
